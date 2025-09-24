@@ -5,7 +5,6 @@ export default function value_to_grid(grid_value) {
   array_values.forEach((elm, idx) => {
     if (grid_value>=array_values[idx]){
       grid_array.unshift('X')
-      array_values.shift
       grid_value -= array_values[idx]
     } else {
       grid_array.unshift('-')
