@@ -2,8 +2,10 @@ export default function grid_to_value(array_grid, symbol) {
   let count = 0
 
   array_grid.forEach((num, idx, arr) => {
-    if (num == symbol) {
+    if (symbol == 'b') {
       count += Math.pow(2, idx)
+    } else {
+      num == symbol ? count += Math.pow(2, idx) : null
     }
   });
   return count

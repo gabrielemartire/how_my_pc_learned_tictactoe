@@ -1,11 +1,11 @@
-export default function value_to_grid(grid_value) {
+export default function value_to_grid(grid_value, symbol) {
   const array_values = [256, 128, 64, 32, 16, 8, 4, 2, 1]
   let grid_array = []
 
-  array_values.forEach((elm, idx) => {
-    if (grid_value>=array_values[idx]){
-      grid_array.unshift('X')
-      grid_value -= array_values[idx]
+  array_values.forEach(elm => {
+    if (grid_value >= elm) {
+      grid_array.unshift(symbol)
+      grid_value -= elm
     } else {
       grid_array.unshift('-')
     }
