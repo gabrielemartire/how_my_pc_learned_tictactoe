@@ -1,18 +1,6 @@
 export default function check_winner(grid_value) {
   let winner_symbol
   ['x', 'o'].forEach(smb => {
-    console.log('check_winner - inside the foreach, for:', smb)
-    console.log('grid_value[0]', grid_value[0])
-    console.log('grid_value[1]', grid_value[1])
-    console.log('grid_value[2]', grid_value[2])
-    console.log('grid_value[3]', grid_value[3])
-    console.log('grid_value[4]', grid_value[4])
-    console.log('grid_value[5]', grid_value[5])
-    console.log('grid_value[6]', grid_value[6])
-    console.log('grid_value[7]', grid_value[7])
-    console.log('grid_value[8]', grid_value[8])
-    console.log('smb', smb)
-
     if (grid_value[0] == smb && grid_value[1] == smb && grid_value[2] == smb) { // UP HOR
       console.log('UP HOR')
       winner_symbol = smb;
@@ -46,7 +34,6 @@ export default function check_winner(grid_value) {
       winner_symbol = smb;
     }
   })
-  console.log(winner_symbol)
   return winner_symbol //no winner yet
 }
 
