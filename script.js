@@ -36,8 +36,8 @@ let x_winner = 0
 let o_winner = 0
 let t_winner = 0
 
-const match_iteration = 8000
-const training_match = (match_iteration/100)*30
+const match_iteration = 5000
+const training_match = (match_iteration/100)*5
 
 while (matches < match_iteration) {
     let match_mind = new Map();
