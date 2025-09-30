@@ -1,4 +1,5 @@
 import grid_to_value from './grid_to_value.js';
+import player_watchdog from './player_watchdog.js';
 
 function getByValue(map, searchValue) {
   for (let [key, value] of map.entries()) {
@@ -14,7 +15,22 @@ export default function find_best_move(tris_grid, deep_mind, matches){
     const x_value = grid_to_value(tris_grid, 'x')
     const o_value = grid_to_value(tris_grid, 'o')
     const key = `${x_value}_${o_value}`;
-    
+   /*  const player_watchdog = player_watchdog(tris_grid)
+    if (player_watchdog) {
+      
+      here we check if the player are going to win
+      the AI should think that o are going to win 
+       ex:
+          x . .    |    0 1 2
+          . . .    |    3 4 5
+          o o .    |    6 7 8    
+            evem if best move to win cuold be x on 1 or 2
+            X should prevent to lose and pick the number 8
+            but how? 
+            we can chuck the near-o-winner cases and train the ai to say "ok with this move I don't win but at least I don't lose"
+
+     
+    } */
     if (deep_mind.has(key)) {
         //console.log('deep_mind.has(key)')
         //console.log('key', key)

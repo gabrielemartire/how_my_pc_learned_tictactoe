@@ -38,8 +38,8 @@ let x_winner = 0
 let o_winner = 0
 let t_winner = 0
 
-const match_iteration = 35000
-const training_match = 0//4000 //(match_iteration/100)*2
+const match_iteration = 50000
+const training_match = (match_iteration/100)*2 
 
 while (matches < match_iteration) {
     let match_mind = new Map();
@@ -74,7 +74,7 @@ while (matches < match_iteration) {
             const matchInput = getRandomInt(9) // il training sarà sempre fatto con numeri random
             if (matchInput === 'e') { break }
             if (zone_filled.includes(matchInput)) { continue } // Se la zona è già occupata, prova un'altra zona - QUESTO VA FIXATO PIU AVANTI
-            console.log(`${tris_grid[0] || '0'} | ${tris_grid[1] || '1'} | ${tris_grid[2] || '2'}\n${tris_grid[3] || '3'} | ${tris_grid[4] || '4'} | ${tris_grid[5] || '5'}\n${tris_grid[6] || '6'} | ${tris_grid[7] || '7'} | ${tris_grid[8] || '8'}
+            console.log(`${tris_grid[0] || 0} | ${tris_grid[1] || 1} | ${tris_grid[2] || 2}\n${tris_grid[3] || 3} | ${tris_grid[4] || 4} | ${tris_grid[5] || 5}\n${tris_grid[6] || 6} | ${tris_grid[7] || 7} | ${tris_grid[8] || 8}
             `)  // here i cant use ?? cause i considered false also '' or "" or 0 
             //console.log("(o) in zona:", matchInput)
             tris_grid[matchInput] = 'o'; // scrivo il simbolo nella zona 
@@ -165,12 +165,12 @@ while(one_more =='y') {
             // THE PLAYER
             console.log(`${tris_grid[0] || '0'} | ${tris_grid[1] || '1'} | ${tris_grid[2] || '2'}\n${tris_grid[3] || '3'} | ${tris_grid[4] || '4'} | ${tris_grid[5] || '5'}\n${tris_grid[6] || '6'} | ${tris_grid[7] || '7'} | ${tris_grid[8] || '8'}`)  // here i cant use ?? cause i considered false also '' or "" or 0 
             const matchInput = promptSync()('scegli la zona')
+            const numMatchInput = Number(matchInput)
             if (matchInput === 'e') { break }
-            if (zone_filled.includes(matchInput)) { continue } // Se la zona è già occupata, prova un'altra zona - QUESTO VA FIXATO PIU AVANTI
-            console.log(`${tris_grid[0] || '0'} | ${tris_grid[1] || '1'} | ${tris_grid[2] || '2'}\n${tris_grid[3] || '3'} | ${tris_grid[4] || '4'} | ${tris_grid[5] || '5'}\n${tris_grid[6] || '6'} | ${tris_grid[7] || '7'} | ${tris_grid[8] || '8'}
-            `)  // here i cant use ?? cause i considered false also '' or "" or 0 
-            tris_grid[matchInput] = 'o'; // scrivo il simbolo nella zona 
-            zone_filled.push(matchInput) // aggiungo la zona alla memoria della griglia occupata - QUESTO VA FIXATO PIU AVANTI
+            if (zone_filled.includes(numMatchInput)) { continue } // Se la zona è già occupata, prova un'altra zona - QUESTO VA FIXATO PIU AVANTI
+            tris_grid[numMatchInput] = 'o'; // scrivo il simbolo nella zona 
+            zone_filled.push(numMatchInput) // aggiungo la zona alla memoria della griglia occupata - QUESTO VA FIXATO PIU AVANTI
+            console.log(`${tris_grid[0] || '0'} | ${tris_grid[1] || '1'} | ${tris_grid[2] || '2'}\n${tris_grid[3] || '3'} | ${tris_grid[4] || '4'} | ${tris_grid[5] || '5'}\n${tris_grid[6] || '6'} | ${tris_grid[7] || '7'} | ${tris_grid[8] || '8'}`)  // here i cant use ?? cause i considered false also '' or "" or 0 
         }
         grid_value = grid_to_value(tris_grid, 'b') // b = both the signs
         const winner_checked = check_winner(tris_grid)
