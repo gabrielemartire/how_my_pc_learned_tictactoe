@@ -1,5 +1,6 @@
 export default function check_winner(grid_value) {
   let winner_symbol
+  // si puo semplificare sapendo che [7, 56, 448, 73, 146, 292, 273, 84]
   ['x', 'o'].forEach(smb => {
     if (grid_value[0] == smb && grid_value[1] == smb && grid_value[2] == smb) { // UP HOR
       //console.log('UP HOR')
