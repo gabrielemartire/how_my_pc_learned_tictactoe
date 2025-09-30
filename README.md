@@ -25,8 +25,7 @@ node script.js
 2. **Exploration vs Exploitation**
 
    * The agent mostly chooses the move with the highest score (**exploitation**).
-   * Exploration (random moves) is minimal, which may prevent discovering defensive or alternative strategies.
-   * This can be improved by introducing an **epsilon-greedy strategy**.
+   * Exploration (random moves) is minimal, which may prevent discovering defensive or alternative strategies. This can be improved by introducing an **epsilon-greedy strategy**.
 
 3. **Learning Rate & Stability**
 
@@ -75,6 +74,32 @@ Winning combinations are always the same 8 sums:
   }
 })
 return grid_array
+```
+
+### Output
+Here some output after RL:
+```
+=== GAME ANALYSIS RESULTS ===
+Matches: 50000 (0 training matches excluded)
+
+Victory Distribution:
+  X wins: 40669 (81.3%)
+  0 wins: 7308 (14.6%)
+  Draws: 2022 (4.0%)
+
+Performance: 92431.21ms
+```
+
+```bash
+=== GAME ANALYSIS RESULTS ===
+Matches: 50000 (1000 training matches excluded)
+
+Victory Distribution:
+  X wins: 37672 (75.3%)
+  O wins: 5919 (11.8%)
+  Draws:  5408 (10.8%)
+
+Performance: 107031.80ms
 ```
 
 ### Future Improvements
