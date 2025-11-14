@@ -18,8 +18,9 @@ IT'S USED TO CREATE THE GENERALL KNOWLEDGE
 export default function manage_deep_mind(tris_grid, deep_mind, match_mind, the_next_move) {
     const x_value = grid_to_value(tris_grid, 'x')
     const o_value = grid_to_value(tris_grid, 'o')
-    const grid_values = [0, 1, 2, 3, 4, 5, 6, 7, 8] // note:
+    const grid_values = []
     /*
+        note:
         questa andrebbe popolata solo con le possibili posizioni in base a valore di x e o - es: 
             0   o   2
             3   o   5

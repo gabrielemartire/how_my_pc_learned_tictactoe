@@ -120,3 +120,18 @@ This project demonstrates how to:
 * Explore the effects of **learning rate** on training stability.
 * Encode board states efficiently with **binary sums**.
 * Learn RL principles **without external ML tools**.
+
+
+
+### Phase 2 - O/player play with deep_mind
+
+=== GAME ANALYSIS RESULTS ===
+Matches: 100000 (2000 training matches excluded)
+
+Victory Distribution:
+  X wins: 9930 (9.9%)
+  O wins: 9891 (9.9%)
+  Draws:  78178 (78.2%)
+
+
+Performance: 196417.43ms

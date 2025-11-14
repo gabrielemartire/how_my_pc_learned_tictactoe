@@ -25,23 +25,17 @@ export default function manage_deep_learning(deep_mind, match_mind, winner_found
                 let index = currentArray.indexOf(val);
                 if (index !== -1) {
                     currentArray.splice(index, 1); // Rimuovi 1 occorrenza
+                } else {
+                    if (!currentArray.includes(val) && Math.random() < 0.1) {  // 10% chance
+                        // qua voglio testare l'epsilon-greedy exploration
+                        currentArray.push(val);
+                    }
                 }
                 break;
             default:
                 // qua siamo in caso di pareggio - ricompensa +1
-                currentArray.push(val); // Aggiunge 8 all'array [5, 6, 7]
+                currentArray.push(val); // e.g. aggiunge 8 all'array [5, 6, 7]
                 break;
-           
-            // METODO C - il pareggio non è ne premiato ne sfavorito
-            /*case 'o':
-                let index = currentArray.indexOf(val);
-                if (index !== -1) {
-                    currentArray.splice(index, 1); // Rimuovi 1 occorrenza
-                }
-                break;
-            default:
-                break;
-                */
         }
         // console.log('pst deep_mind id:', id, '=', deep_mind.get(id)); // POST
     });
