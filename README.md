@@ -104,12 +104,12 @@ Performance: 107031.80ms
 
 ### Future Improvements
 
-- [ ] Add **epsilon-greedy exploration** to improve learning robustness.
-- [ ] Transition to a **DQN (Deep Q-Network)** with experience replay.
-- [ ] Implement basic **anti-overfitting strategies** (e.g., early stopping, validation on simulated matches).
-- [ ] Porting to **TensorFlow.js** and browser-based parallelization.
-- [ ] Extend to more complex games (e.g., **Connect Four**).
-- [ ] Build a **dashboard/visualizer** for training progress.
+1. Add **epsilon-greedy exploration** to improve learning robustness.
+2. Transition to a **DQN (Deep Q-Network)** with experience replay.
+3. Implement basic **anti-overfitting strategies** (e.g., early stopping, validation on simulated matches).
+4. Porting to **TensorFlow.js** and browser-based parallelization.
+5. tend to more complex games (e.g., **Connect Four**).
+6. Build a **dashboard/visualizer** for training progress.
 
 ## Summary
 
