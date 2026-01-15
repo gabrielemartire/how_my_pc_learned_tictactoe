@@ -1,0 +1,27 @@
+name: Walton Dependency Check
+
+on:
+  # Run on push to main branch
+  push:
+    branches: [main]
+  # Run weekly on Monday at 9am
+  schedule:
+    - cron: '0 9 * * 1'
+    
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  check-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Walton
+        uses: gabrielemartire/walton@main
