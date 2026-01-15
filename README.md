@@ -7,35 +7,36 @@
 ```bash
 npm install
 node script.js
-````
+```
 
 ### Project Logic
 
 1. **Tabular Q-Learning**
 
-   * The agent plays around **50,000 games of Tic-Tac-Toe** against itself.
-   * After each game, it updates a **Q-table** that maps each grid state to a score.
-   * Updates:
+   - The agent plays around **50,000 games of Tic-Tac-Toe** against itself.
+   - After each game, it updates a **Q-table** that maps each grid state to a score.
+   - Updates:
 
-     * Win → `+3`
-     * Loss → `-1`
-     * Draw → `0`
-   * No neural networks or experience replay are used: this is a pure **tabular approach**, making the process transparent and easy to inspect.
+     - Win → `+3`
+     - Loss → `-1`
+     - Draw → `0`
+
+   - No neural networks or experience replay are used: this is a pure **tabular approach**, making the process transparent and easy to inspect.
 
 2. **Exploration vs Exploitation**
 
-   * The agent mostly chooses the move with the highest score (**exploitation**).
-   * Exploration (random moves) is minimal, which may prevent discovering defensive or alternative strategies. This can be improved by introducing an **epsilon-greedy strategy**.
+   - The agent mostly chooses the move with the highest score (**exploitation**).
+   - Exploration (random moves) is minimal, which may prevent discovering defensive or alternative strategies. This can be improved by introducing an **epsilon-greedy strategy**.
 
 3. **Learning Rate & Stability**
 
-   * Reward values (`+3`, `-1`, `0`) strongly affect learning stability.
-   * Overly large rewards/penalties can destabilize the process (e.g., giving `+12` for a win may bias the system too much).
+   - Reward values (`+3`, `-1`, `0`) strongly affect learning stability.
+   - Overly large rewards/penalties can destabilize the process (e.g., giving `+12` for a win may bias the system too much).
 
 4. **Experiments & Observations**
 
-   * Tic-Tac-Toe, being a finite game, allows clear observation of how rule changes impact strategies.
-   * The tabular model makes it possible to **open the box** and directly see how the agent learns.
+   - Tic-Tac-Toe, being a finite game, allows clear observation of how rule changes impact strategies.
+   - The tabular model makes it possible to **open the box** and directly see how the agent learns.
 
 ### Grid Representation
 
@@ -47,14 +48,14 @@ Each cell is associated with a **power of 2**, enabling unique encoding of every
 64  | 128  | 256
 ```
 
-* Each occupied cell contributes to a unique sum → this sum encodes the board configuration.
+- Each occupied cell contributes to a unique sum → this sum encodes the board configuration.
 
 Examples:
 
-* First row → `1 + 2 + 4 = 7`
-* First column → `1 + 8 + 64 = 73`
-* Diagonal → `1 + 16 + 256 = 273`
-* Middle row → `8 + 16 + 32 = 56`
+- First row → `1 + 2 + 4 = 7`
+- First column → `1 + 8 + 64 = 73`
+- Diagonal → `1 + 16 + 256 = 273`
+- Middle row → `8 + 16 + 32 = 56`
 
 Winning combinations are always the same 8 sums:
 
@@ -66,18 +67,20 @@ Winning combinations are always the same 8 sums:
 
 ```javascript
 [256, 128, 64, 32, 16, 8, 4, 2, 1].forEach((elm, idx) => {
-  if (grid_value >= array_values[idx]) { 
-    grid_array.unshift('X')
-    grid_value -= array_values[idx]
+  if (grid_value >= array_values[idx]) {
+    grid_array.unshift("X");
+    grid_value -= array_values[idx];
   } else {
-    grid_array.unshift('-')
+    grid_array.unshift("-");
   }
-})
-return grid_array
+});
+return grid_array;
 ```
 
 ### Output
+
 Here some output after RL:
+
 ```
 === GAME ANALYSIS RESULTS ===
 Matches: 50000 (0 training matches excluded)
@@ -115,13 +118,11 @@ Performance: 107031.80ms
 
 This project demonstrates how to:
 
-* Implement **Q-Learning from scratch** in JavaScript.
-* Understand the balance of **exploration vs exploitation**.
-* Explore the effects of **learning rate** on training stability.
-* Encode board states efficiently with **binary sums**.
-* Learn RL principles **without external ML tools**.
-
-
+- Implement **Q-Learning from scratch** in JavaScript.
+- Understand the balance of **exploration vs exploitation**.
+- Explore the effects of **learning rate** on training stability.
+- Encode board states efficiently with **binary sums**.
+- Learn RL principles **without external ML tools**.
 
 ### Phase 2 - O/player play with deep_mind
 
@@ -129,9 +130,10 @@ This project demonstrates how to:
 Matches: 100000 (2000 training matches excluded)
 
 Victory Distribution:
-  X wins: 9930 (9.9%)
-  O wins: 9891 (9.9%)
-  Draws:  78178 (78.2%)
-
+X wins: 9930 (9.9%)
+O wins: 9891 (9.9%)
+Draws: 78178 (78.2%)
 
 Performance: 196417.43ms
+
+---
